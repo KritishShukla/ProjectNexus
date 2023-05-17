@@ -272,53 +272,7 @@ router.post(
   }
 );
 
-router.post(
-  "/eventRegister",
-  async (req, res) => {
-    if(validateData(req.body)){
-      const allUsers = await event.find();
-      if(allUsers.find(user => user.libid === req.body.libid)){
-        resp = {
-          status: 409,
-          id: 3,
-          title: `❌ Library ID "${req.body.libid}" Already Exists`,
-          message: "You have already registered"
-      }
-        return res.send(JSON.stringify(resp));
-      }
-      if(allUsers.find(user => user.email === req.body.email)){
-        resp = {
-          status: 409,
-          id: 3,
-          title: `❌ Email "${req.body.email}" Already Exists`,
-          message: "You have already registered"
-      }
-        return res.send(JSON.stringify(resp));
-      }
-      if(allUsers.find(user => user.phone === req.body.phone)){
-        resp = {
-          status: 409,
-          id: 3,
-          title: `❌ Phone number "${req.body.phone}" Already Exists`,
-          message: "You have already registered"
-      }
-        return res.send(JSON.stringify(resp));
-      }
-      await event.create(req.body)
-      resp = {
-        status: 200,
-        id: 1,
-        title: "✔Registration Successfull!",
-        message: "Let's make this winter hot!🔥"
-    }
-      return res.send(JSON.stringify(resp));
-    }
-    else{
-      const resp = {message: "Invalid Data"};
-      res.send(JSON.stringify(resp));
-    } 
-  }
-);
+
 
 async function validateData(data) {
 
