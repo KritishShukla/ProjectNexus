@@ -308,7 +308,7 @@ router.post(
       resp = {
         status: 200,
         id: 1,
-        title: "✔Registration Successfull!",
+        title: "✔Registration complete!",
         message: "Let's make this winter hot!🔥"
     }
       return res.send(JSON.stringify(resp));
