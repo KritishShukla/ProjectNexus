@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const project = require("../config/project");
 const user = require("../config/user");
 const eventregistrations = require("../config/event");
-
+const admins = require("../config/admins");
 
 AdminBro.registerAdapter(AdminBroMongoose);
 
