@@ -63,3 +63,5 @@ const addProject = async function (data){
     projects = await Project.find({projectId: resp.data.id});
     console.log(projects);
   }
+
+module.exports = {addProject};
